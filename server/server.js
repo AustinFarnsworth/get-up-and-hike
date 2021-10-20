@@ -9,36 +9,36 @@ app.use(express.json());
 
 const port = process.env.PORT || 5000;
 
-let posts = [
-  {
-    id: 1,
-    author: "John",
-    postContent: "Hello this is a post",
-  },
-  {
-    id: 2,
-    author: "Jane",
-    postContent: "Whats up?",
-  },
-  {
-    id: 3,
-    author: "Frank",
-    postContent: "Im hungry",
-  },
-];
+// dummy data
+// let posts = [
+//   {
+//     id: 1,
+//     author: "John",
+//     postContent: "Hello this is a post",
+//   },
+//   {
+//     id: 2,
+//     author: "Jane",
+//     postContent: "Whats up?",
+//   },
+//   {
+//     id: 3,
+//     author: "Frank",
+//     postContent: "Im hungry",
+//   },
+// ];
 
 // Get all blog posts
 app.get("/posts", async (req, res) => {
-  const results = await db.query("SELECT * FROM users");
-  console.log(results);
+  const blogPosts = await db.query("SELECT * FROM users");
+  res.status(200).send(blogPosts.rows);
 });
 
 // Get a single blog post
-app.get("/posts/:id", (req, res) => {
-  // const postId = posts.findIndex(posts.id);
-  // res.status(200).json(postId);
-  res.status(200).json();
-  console.log(req.params);
+app.get("/posts/:id", async (req, res) => {
+  const {id} = req.params;
+  const {rows} = await db.query("SELECT * FROM users WHERE id = $1", [id]);
+  res.send(rows[0]);
 });
 
 // Create blog post
