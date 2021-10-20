@@ -14,8 +14,10 @@ const port = process.env.PORT || 5000;
 app.get("/post", (req, res) => {
   res.status(200).json({
     status: "Success",
-    author: "John",
-    postContent: "Hello this is a post",
+    data: {
+      author: "John",
+      postContent: "Hello this is a post",
+    },
   });
 });
 
