@@ -5,11 +5,11 @@ function Header() {
   return (
     <div className="header-component">
       <div className="header-title">
-        <span>Get Up and Hike</span>
+        <span className="title">Get Up and Hike</span>
       </div>
       <img
         className="header-image"
-        src="../images/free-hiking-trails-in-Joburg.jpeg"
+        src="/images/hiking-header.jpeg"
         alt="hikers"
       />
     </div>
