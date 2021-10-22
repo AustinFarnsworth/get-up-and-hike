@@ -1,0 +1,43 @@
+.side-bar {
+  flex: 15%;
+  margin: 20px;
+  padding-bottom: 25px;
+  padding-right: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-items {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-image {
+  max-width: 70%;
+  height: auto;
+  margin-top: 25px;
+  margin-bottom: 5px;
+}
+
+.sidebar-title {
+  padding-top: 7px;
+  padding-bottom: 7px;
+  width: 70%;
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
+  line-height: 15px;
+}
+
+.list {
+  margin-top: 5px;
+  list-style: none;
+}
+
+.sidebar-info {
+  padding-bottom: 9px;
+}
+
+.sidebar-items > p {
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
