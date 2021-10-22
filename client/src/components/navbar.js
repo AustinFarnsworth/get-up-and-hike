@@ -12,9 +12,9 @@ function NavBar() {
         <div className="nav-links">Write</div>
       </div>
       <div className="right">
-        {/* <img src="" alt=""> */}
+        {/* <img className="profile-pic" src="" alt=""> */}
         <input className="search" />
-        <i className="fas fa-search"></i>
+        <i className=" search-icon fas fa-search"></i>
       </div>
     </div>
   );
