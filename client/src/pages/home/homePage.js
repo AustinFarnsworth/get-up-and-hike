@@ -1,7 +1,7 @@
 import React from "react";
 import "./homePage.css";
 import Header from "../..//header/header";
-import PostsCard from "../../components/postsCard";
+import Posts from "../../components/posts";
 import SideBar from "../../components/sidebar";
 
 function HomePage() {
@@ -10,7 +10,7 @@ function HomePage() {
       <Header />
       <div className="posts-container">
         <SideBar />
-        <PostsCard />
+        <Posts />
       </div>
     </div>
   );
