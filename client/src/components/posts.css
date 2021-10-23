@@ -1,4 +1,7 @@
 .post-container {
-  flex: 65%;
-  background-color: orange;
+  flex: 55%;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px;
+  justify-content: space-around;
 }
