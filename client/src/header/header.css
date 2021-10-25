@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,500;1,600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap");
 
 .header-component {
   margin-top: 60px;
@@ -15,7 +15,7 @@
   position: absolute;
   top: 22%;
   font-size: 50px;
-  font-family: "Raleway", sans-serif;
+  font-family: "Titillium Web", sans-serif;
 }
 
 .header-image {

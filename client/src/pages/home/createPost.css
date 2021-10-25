@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap");
+
 .create-post {
   padding-top: 7%;
   max-width: 500px;
@@ -13,6 +15,7 @@
 .create-post h2 {
   font-size: 25px;
   margin-bottom: 20px;
+  font-family: "Titillium Web", sans-serif;
 }
 
 .create-post input,
