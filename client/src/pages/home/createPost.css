@@ -1,3 +1,38 @@
-.create-post-container {
-  margin-top: 4.5%;
+.create-post {
+  padding-top: 7%;
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.create-post label {
+  text-align: left;
+  display: block;
+}
+
+.create-post h2 {
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+
+.create-post input,
+.create-post textarea {
+  width: 100%;
+  padding: 6px 10px;
+  margin: 10px 0;
+  display: block;
+}
+
+.blog-button {
+  width: 25%;
+  padding: 3px;
+  border-radius: 3px;
+  border-style: none;
+  cursor: pointer;
+}
+
+.blog-button:hover {
+  color: #283618;
+  border-color: #283618 1px solid;
+  background-color: #fff;
 }

@@ -1,15 +1,20 @@
 import NavBar from "./components/navbar";
-// import HomePage from "./pages/home/homePage";
-// import SinglePost from "./pages/home/singlePost";
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import SinglePost from "./pages/home/singlePost";
 import CreatePost from "./pages/home/createPost";
+import HomePage from "./pages/home/homePage";
 
 function App() {
   return (
     <div>
       <NavBar />
-      <CreatePost />
-      {/* <SinglePost /> */}
-      {/* <HomePage /> */}
+      <Router>
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route exact path="/post" component={SinglePost} />
+          <Route exact path="/create" component={CreatePost} />
+        </Switch>
+      </Router>
     </div>
   );
 }

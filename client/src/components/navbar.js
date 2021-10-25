@@ -9,7 +9,7 @@ function NavBar() {
         <div className="nav-links">Home</div>
         <div className="nav-links">About</div>
         <div className="nav-links">Post</div>
-        <div className="nav-links">Write</div>
+        <div className="nav-links">Contact</div>
       </div>
       <div className="right">
         {/* <img className="profile-pic" src="" alt=""> */}
