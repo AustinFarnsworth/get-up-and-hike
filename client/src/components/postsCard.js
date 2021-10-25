@@ -10,7 +10,7 @@ function PostsCard() {
           alt="mountians"
           className="card-image"
         />
-        <h1 class="card-title">Trying Hiking these Mountains</h1>
+        <h1 class="card-title">Try Hiking these Mountains</h1>
         <p className="card-info">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
           lacinia eu odio et tincidunt. Fusce a augue dapibus, gravida est
