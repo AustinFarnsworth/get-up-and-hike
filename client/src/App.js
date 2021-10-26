@@ -1,4 +1,5 @@
 import NavBar from "./components/navbar";
+import "./app.css";
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import SinglePost from "./pages/home/singlePost";
 import CreatePost from "./pages/home/createPost";
@@ -7,7 +8,7 @@ import AboutPage from "./pages/home/aboutPage";
 
 function App() {
   return (
-    <div>
+    <div className="app">
       <NavBar />
       <Router>
         <Switch>

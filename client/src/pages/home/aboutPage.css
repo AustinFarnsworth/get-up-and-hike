@@ -1,3 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap");
+
 .about-page {
-  margin-top: 4.5%;
+  margin-top: 7%;
+  display: flex;
+  width: 100%;
+  padding: 5px 10px;
+}
+
+.about-page-left {
+  flex: 4%;
+  margin-right: 5px;
+  margin-left: 10px;
+}
+
+.about-page-left h2 {
+  font-family: "Titillium Web", sans-serif;
+}
+
+.about-page-left h3 {
+  font-family: "Titillium Web", sans-serif;
+  padding: 0 5x;
+}
+
+.about-info {
+  padding-top: 5px;
+}
+
+.about-page-right {
+  flex: 5%;
+  margin-right: 15px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.about-pic {
+  max-width: 80%;
+  height: auto;
+  border-radius: 8px;
 }
