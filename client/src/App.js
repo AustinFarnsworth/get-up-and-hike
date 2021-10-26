@@ -5,20 +5,23 @@ import SinglePost from "./pages/home/singlePost";
 import CreatePost from "./pages/home/createPost";
 import HomePage from "./pages/home/homePage";
 import AboutPage from "./pages/home/aboutPage";
+import {PostsContextProvider} from "./context/postContext";
 
 function App() {
   return (
-    <div className="app">
-      <NavBar />
-      <Router>
-        <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route exact path="/post" component={SinglePost} />
-          <Route exact path="/about" component={AboutPage} />
-          <Route exact path="/create" component={CreatePost} />
-        </Switch>
-      </Router>
-    </div>
+    <PostsContextProvider>
+      <div className="app">
+        <NavBar />
+        <Router>
+          <Switch>
+            <Route exact path="/" component={HomePage} />
+            <Route exact path="/post" component={SinglePost} />
+            <Route exact path="/about" component={AboutPage} />
+            <Route exact path="/create" component={CreatePost} />
+          </Switch>
+        </Router>
+      </div>
+    </PostsContextProvider>
   );
 }
 
