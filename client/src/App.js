@@ -9,6 +9,7 @@ import {PostsContextProvider} from "./context/postContext";
 
 function App() {
   return (
+    // adding the context provider to allow shared data globally with app
     <PostsContextProvider>
       <div className="app">
         <NavBar />

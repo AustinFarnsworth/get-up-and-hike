@@ -1,10 +1,12 @@
 const express = require("express");
 const db = require("./db");
+const cors = require("cors");
 
 require("dotenv").config();
 
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 
 const port = process.env.PORT || 5000;
@@ -68,10 +70,11 @@ app.post("/posts", async (req, res) => {
 app.put("/posts/:id", async (req, res) => {
   try {
     const {rows} = await db.query(
-      "UPDATE blog_post SET user_id = $1, blog_image = $2, date_posted = $3, post_content = $4 WHERE id = $5 RETURNING *",
+      "UPDATE blog_post SET user_id = $1, blog_image = $2, blog_title = $3, date_posted = $4, post_content = $5 WHERE id = $6 RETURNING *",
       [
         req.body.user_id,
         req.body.blog_image,
+        req.body.blog_title,
         req.body.date_posted,
         req.body.post_content,
         req.params.id,
