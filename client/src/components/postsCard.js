@@ -18,6 +18,17 @@ const PostsCard = (props) => {
     fetchData();
   }, []);
 
+  const handleDelete = async (id) => {
+    try {
+      const response = await BlogPostFinder.delete(`/${id}`);
+      setBlogPosts(
+        blogPosts.filter((blogPost) => {
+          return blogPost.id !== id;
+        })
+      );
+    } catch (err) {}
+  };
+
   return (
     <div className="card">
       {blogPosts.map((el) => {
@@ -34,6 +45,7 @@ const PostsCard = (props) => {
               <a href="/" className="card-button">
                 Read More
               </a>
+              <button onClick={() => handleDelete(el.id)}>Delete Post</button>
             </div>
           </div>
         );

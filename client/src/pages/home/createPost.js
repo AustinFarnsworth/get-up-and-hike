@@ -3,6 +3,7 @@ import "./createPost.css";
 import {useState, useContext} from "react";
 import BlogPostFinder from "../../apis/blogAPI";
 import {PostsContext} from "../../context/postContext";
+import swal from "sweetalert";
 
 function CreatePost() {
   const {addBlogPost} = useContext(PostsContext);
@@ -20,7 +21,12 @@ function CreatePost() {
       });
 
       addBlogPost(response.data.data.post);
-      console.log(response);
+
+      swal({
+        title: "Congrats",
+        text: "Post was created",
+        icon: "success",
+      });
     } catch (err) {}
   };
 

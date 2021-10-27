@@ -10,6 +10,10 @@ export const PostsContextProvider = (props) => {
     setBlogPosts({...blogPost, blogPost});
   };
 
+  // const editBlogPost = (editPost) => {
+  //   setBlogPosts({...blogPost});
+  // };
+
   return (
     <PostsContext.Provider
       value={{
