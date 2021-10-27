@@ -33,7 +33,12 @@ const port = process.env.PORT || 5000;
 // Get all blog posts
 app.get("/posts", async (req, res) => {
   const blogPosts = await db.query("SELECT * FROM blog_post");
-  res.status(200).send(blogPosts.rows);
+  res.status(200).json({
+    blogPosts: blogPosts.rows.length,
+    data: {
+      posts: blogPosts.rows,
+    },
+  });
 });
 
 // Get a single blog post
@@ -49,10 +54,11 @@ app.post("/posts", async (req, res) => {
 
   try {
     const {rows} = await db.query(
-      "INSERT INTO blog_post (user_id, blog_image, date_posted, post_content) VALUES ($1, $2, $3, $4) RETURNING *",
+      "INSERT INTO blog_post (user_id, blog_image, blog_title, date_posted, post_content) VALUES ($1, $2, $3, $4, $5) RETURNING *",
       [
         req.body.user_id,
         req.body.blog_image,
+        req.body.blog_title,
         req.body.date_posted,
         req.body.post_content,
       ]
