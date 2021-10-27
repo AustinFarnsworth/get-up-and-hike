@@ -6,9 +6,17 @@ export const PostsContext = createContext();
 export const PostsContextProvider = (props) => {
   const [blogPosts, setBlogPosts] = useState([]);
 
+  const addBlogPost = (blogPost) => {
+    setBlogPosts({...blogPost, blogPost});
+  };
+
   return (
     <PostsContext.Provider
-      value={{blogPosts: blogPosts, setBlogPosts: setBlogPosts}}
+      value={{
+        blogPosts: blogPosts,
+        setBlogPosts: setBlogPosts,
+        addBlogPost: addBlogPost,
+      }}
     >
       {props.children}
     </PostsContext.Provider>

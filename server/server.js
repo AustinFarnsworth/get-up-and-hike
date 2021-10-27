@@ -65,6 +65,10 @@ app.post("/posts", async (req, res) => {
     );
     res.status(200).json({
       status: "Sucessfully Added to Database",
+      blogPosts: rows.length,
+      data: {
+        posts: rows,
+      },
     });
     console.log(rows);
   } catch (err) {
