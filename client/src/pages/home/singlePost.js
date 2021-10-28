@@ -1,6 +1,6 @@
 import React, {useContext, useEffect} from "react";
 import {useParams} from "react-router";
-// import {PostsContext} from "../../context/postContext";
+import {PostsContext} from "../../context/postContext";
 import BlogPostFinder from "../../apis/blogAPI";
 import "./singlePost.css";
 
@@ -8,12 +8,12 @@ function SinglePost(props) {
   // hook to find the params in a url
   const {id} = useParams();
 
-  // const blogPost = useContext(PostsContext);
+  const blogPost = useContext(PostsContext);
 
   useEffect(() => {
     const fetchData = async () => {
       const response = await BlogPostFinder.get(`/${id}`);
-      console.log(response.data.data);
+      console.log(response.data);
     };
 
     fetchData();
@@ -27,7 +27,7 @@ function SinglePost(props) {
           alt="mountians"
           className="card-image"
         />
-        <h1 className="post-title">Blog Title</h1>
+        <h1 className="post-title">Blog title</h1>
         <p className="post-info">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
           lacinia eu odio et tincidunt. Fusce a augue dapibus, gravida est

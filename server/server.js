@@ -43,7 +43,7 @@ app.get("/posts", async (req, res) => {
 
 // Get a single blog post
 app.get("/posts/:id", async (req, res) => {
-  const {id} = req.params.id;
+  const {id} = req.params;
   const {rows} = await db.query("SELECT * FROM blog_post WHERE id = $1", [id]);
   res.send(rows[0]);
 });

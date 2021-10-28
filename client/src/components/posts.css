@@ -1,7 +1,9 @@
 .post-container {
   flex: 55%;
+  width: 800px;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row-reverse;
+  /* flex-wrap: wrap; */
   margin: 10px;
   justify-content: space-around;
 }
