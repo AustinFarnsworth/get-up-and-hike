@@ -48,7 +48,7 @@
 
 .card-info {
   text-align: justify;
-  padding-left: 15px;
+  padding-left: 12px;
   padding-right: 15px;
   padding-bottom: 5px;
   font-family: "Open Sans", sans-serif;
@@ -63,11 +63,11 @@
 }
 
 .card-button {
-  background-color: #3edd84;
+  background-color: #284b63;
   color: white;
   width: 35px;
-  padding: 7px 13px;
-  margin-left: 35px;
+  padding: 6px 13px;
+  margin-left: 20px;
   margin-right: 20px;
   border-radius: 3px;
   text-decoration: none;
