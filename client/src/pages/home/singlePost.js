@@ -1,7 +1,24 @@
-import React from "react";
+import React, {useContext, useEffect} from "react";
+import {useParams} from "react-router";
+// import {PostsContext} from "../../context/postContext";
+import BlogPostFinder from "../../apis/blogAPI";
 import "./singlePost.css";
 
-function SinglePost() {
+function SinglePost(props) {
+  // hook to find the params in a url
+  const {id} = useParams();
+
+  // const blogPost = useContext(PostsContext);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await BlogPostFinder.get(`/${id}`);
+      console.log(response.data.data);
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <div className="single-post-container">
       <div className="single-post">

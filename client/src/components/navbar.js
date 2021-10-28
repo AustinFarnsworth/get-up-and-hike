@@ -1,5 +1,6 @@
 import React from "react";
 import "./navbar.css";
+// import {BrowserRouter as Router, Link} from "react-router-dom";
 
 function NavBar() {
   return (
@@ -8,8 +9,19 @@ function NavBar() {
       <div className="center">
         <div className="nav-links">Home</div>
         <div className="nav-links">About</div>
-        <div className="nav-links">Post</div>
-        <div className="nav-links">Contact</div>
+        <div className="nav-links">Create Post</div>
+
+        {/* <Router>
+          <div className="nav-links">
+            <Link to="/">Home</Link>
+          </div>
+          <div className="nav-links">
+            <Link to="/about">About</Link>
+          </div>
+          <div className="nav-links">
+            <Link to="/create">Create Post</Link>
+          </div>
+        </Router> */}
       </div>
       <div className="right">
         {/* <img className="profile-pic" src="" alt=""> */}

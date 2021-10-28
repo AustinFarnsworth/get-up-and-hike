@@ -2,15 +2,18 @@ import React, {useContext, useEffect} from "react";
 import "./postsCard.css";
 import BlogPostFinder from "../apis/blogAPI";
 import {PostsContext} from "../context/postContext";
+import {useHistory} from "react-router";
 
 const PostsCard = (props) => {
   const {blogPosts, setBlogPosts} = useContext(PostsContext);
+  // history of the browser
+  let history = useHistory();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await BlogPostFinder.get("/");
-        console.log(response);
+
         setBlogPosts(response.data.data.posts);
       } catch (err) {}
     };
@@ -29,6 +32,10 @@ const PostsCard = (props) => {
     } catch (err) {}
   };
 
+  const handleReadMore = async (id) => {
+    history.push(`/post/${id}`);
+  };
+
   return (
     <div className="card">
       {blogPosts.map((el) => {
@@ -42,7 +49,7 @@ const PostsCard = (props) => {
             <h1 class="card-title">{el.blog_title}</h1>
             <p className="card-info">{el.post_content}</p>
             <div>
-              <a href="/" className="card-button">
+              <a onClick={() => handleReadMore(el.id)} className="card-button">
                 Read More
               </a>
               <button onClick={() => handleDelete(el.id)}>Delete Post</button>

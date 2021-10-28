@@ -6,6 +6,7 @@ function Posts() {
   return (
     <div className="post-container">
       <PostsCard />
+      <PostsCard />
     </div>
   );
 }
