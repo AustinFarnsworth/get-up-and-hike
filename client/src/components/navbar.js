@@ -1,15 +1,23 @@
 import React from "react";
 import "./navbar.css";
-// import {BrowserRouter as Router, Link} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 function NavBar() {
   return (
     <div className="nav-bar">
       <div className="left"></div>
       <div className="center">
-        <div className="nav-links">Home</div>
-        <div className="nav-links">About</div>
-        <div className="nav-links">Create Post</div>
+        <Link to="/" className="nav-links">
+          Home
+        </Link>
+
+        <Link to="about" className="nav-links">
+          About
+        </Link>
+
+        <Link to="create" className="nav-links">
+          Create Post
+        </Link>
 
         {/* <Router>
           <div className="nav-links">

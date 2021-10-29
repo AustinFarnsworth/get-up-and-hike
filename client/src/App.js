@@ -13,8 +13,8 @@ function App() {
     // adding the context provider to allow shared data globally with app
     <PostsContextProvider>
       <div className="app">
-        <NavBar />
         <Router>
+          <NavBar />
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route exact path="/post/:id" component={SinglePost} />

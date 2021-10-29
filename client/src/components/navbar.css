@@ -41,4 +41,6 @@
   padding: 10px;
   cursor: pointer;
   font-family: "Titillium Web", sans-serif;
+  text-decoration: none;
+  color: black;
 }
