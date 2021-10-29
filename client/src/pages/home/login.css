@@ -1,0 +1,43 @@
+.login-container {
+  margin-top: 7%;
+  margin-left: 6%;
+  margin-right: 6%;
+}
+
+.login-form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.login-header {
+  font-family: "Titillium Web", sans-serif;
+  font-size: 35px;
+  color: #333333;
+  line-height: 1.2;
+  padding-bottom: 70px;
+}
+
+.login-input {
+  border: none;
+  font-size: 18px;
+  color: #555555;
+  height: 52px;
+  background: transparent;
+  padding: 0 5px;
+  width: 40%;
+  border-bottom-style: solid;
+  border-bottom-color: grey;
+}
+
+.login-button {
+  margin-top: 20px;
+  font-size: 16px;
+  color: #fff;
+  text-transform: uppercase;
+  padding: 0 20px;
+  width: 35%;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+}
