@@ -30,6 +30,8 @@ const port = process.env.PORT || 5000;
 //   },
 // ];
 
+// ~~~~~~~~~~~~~~~~ POST ROUTES ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 // Get all blog posts
 app.get("/posts", async (req, res) => {
   const blogPosts = await db.query("SELECT * FROM blog_post");
@@ -109,6 +111,28 @@ app.delete("/posts/:id", async (req, res) => {
     });
   } catch (err) {
     console.log(err);
+  }
+});
+
+// ~~~~~~~~~~~~~~~~~ USER ROUTES ~~~~~~~~~~~~~~~~~~~~
+
+// Create User
+app.post("/register", async (req, res) => {
+  try {
+    const users = await db.query(
+      "INSERT INTO users (first_name, last_name, email, password) VALUES ($1, $2, $3, $4) RETURNING *",
+      [
+        req.body.first_name,
+        req.body.last_name,
+        req.body.email,
+        req.body.password,
+      ]
+    );
+    res.status(200).json({
+      status: "Sucessfully Added User to Database",
+    });
+  } catch (error) {
+    console.log(error);
   }
 });
 
