@@ -1,8 +1,8 @@
 import React, {useContext, useState} from "react";
 import "./register.css";
-import axios from "axios";
 import {PostsContext} from "../../context/postContext";
 import BlogPostfinder from "../../apis/blogAPI";
+import {Link} from "react-router-dom";
 
 function RegisterPage() {
   const {addUsers} = useContext(PostsContext);
@@ -12,8 +12,6 @@ function RegisterPage() {
   const [password, setPassword] = useState("");
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-
     try {
       const response = await BlogPostfinder.post("/register", {
         first_name: firstName,
@@ -21,7 +19,8 @@ function RegisterPage() {
         email: email,
         password: password,
       });
-      console.log(response);
+
+      addUsers(response.data.data.users);
     } catch (error) {}
 
     // axios
@@ -61,9 +60,13 @@ function RegisterPage() {
           onChange={(e) => setPassword(e.target.value)}
         ></input>
         <input type="password" placeholder="Confirm Password"></input>
-        <button type="submit" onChange={handleSubmit}>
+        <button type="submit" onClick={handleSubmit}>
           Sign up
         </button>
+
+        <Link to="/login" className="nav-links">
+          Login
+        </Link>
       </form>
     </div>
   );

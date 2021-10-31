@@ -117,7 +117,7 @@ app.delete("/posts/:id", async (req, res) => {
 // ~~~~~~~~~~~~~~~~~ USER ROUTES ~~~~~~~~~~~~~~~~~~~~
 
 // Create User
-app.post("/register", async (req, res) => {
+app.post("/posts/register", async (req, res) => {
   try {
     const users = await db.query(
       "INSERT INTO users (first_name, last_name, email, password) VALUES ($1, $2, $3, $4) RETURNING *",
@@ -130,6 +130,9 @@ app.post("/register", async (req, res) => {
     );
     res.status(200).json({
       status: "Sucessfully Added User to Database",
+      data: {
+        users: users,
+      },
     });
   } catch (error) {
     console.log(error);

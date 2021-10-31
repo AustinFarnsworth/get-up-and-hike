@@ -1,5 +1,6 @@
 import React from "react";
 import "./login.css";
+import {Link} from "react-router-dom";
 
 function LoginPage() {
   return (
@@ -13,6 +14,9 @@ function LoginPage() {
           placeholder="Password"
         ></input>
         <button className="login-button">Login</button>
+        <Link to="/register" className="nav-links">
+          Register
+        </Link>
       </form>
     </div>
   );
