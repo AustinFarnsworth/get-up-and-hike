@@ -18,6 +18,9 @@ function NavBar() {
         <Link to="create" className="nav-links">
           Create Post
         </Link>
+        <Link to="login" className="nav-links">
+          Login
+        </Link>
 
         {/* <Router>
           <div className="nav-links">

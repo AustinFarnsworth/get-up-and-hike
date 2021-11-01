@@ -28,7 +28,8 @@ function AboutPage() {
               <i class="fab fa-twitter fa-3x twitter"></i>
             </a>
           </div>
-          <div className="form-container">
+          {/* <h2>Or Email to:</h2> */}
+          {/* <div className="form-container">
             <form
               clasName="email-form"
               action="https://formspree.io/f/xoqyoqjl"
@@ -42,7 +43,7 @@ function AboutPage() {
 
               <button type="submit">Send</button>
             </form>
-          </div>
+          </div> */}
         </div>
       </div>
       <div className="about-page-right">

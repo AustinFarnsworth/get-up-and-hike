@@ -1,6 +1,7 @@
 const express = require("express");
 const db = require("./db");
 const cors = require("cors");
+const bcrypt = require("bcrypt");
 
 require("dotenv").config();
 
@@ -119,23 +120,36 @@ app.delete("/posts/:id", async (req, res) => {
 // Create User
 app.post("/posts/register", async (req, res) => {
   try {
-    const users = await db.query(
+    const {first_name, last_name, email, password} = req.body;
+    const salt = bcrypt.genSaltSync(10);
+    const passwordHash = await bcrypt.hashSync(password, salt);
+
+    let results = await db.query(
       "INSERT INTO users (first_name, last_name, email, password) VALUES ($1, $2, $3, $4) RETURNING *",
-      [
-        req.body.first_name,
-        req.body.last_name,
-        req.body.email,
-        req.body.password,
-      ]
+      [first_name, last_name, email, passwordHash]
     );
     res.status(200).json({
-      status: "Sucessfully Added User to Database",
+      status: "Sucessfully Added to Database",
+    });
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+app.post("/posts/login", async (req, res) => {
+  try {
+    const users = await db.query(
+      "SELECT * FROM users WHERE email = ? AND password = ?",
+      [req.body.email, req.body.password]
+    );
+    res.status(200).json({
+      status: "Sucessfully Logged in.",
       data: {
         users: users,
       },
     });
   } catch (error) {
-    console.log(error);
+    res.send({error: error});
   }
 });
 
