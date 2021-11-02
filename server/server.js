@@ -136,21 +136,47 @@ app.post("/posts/register", async (req, res) => {
   }
 });
 
+// app.post("/posts/login", async (req, res) => {
+//   try {
+//     const users = await db.query(
+//       "SELECT * FROM users WHERE email = ? AND password = ?",
+//       [req.body.email, req.body.password]
+//     );
+//     res.status(200).json({
+//       status: "Sucessfully Logged in.",
+//     });
+//   } catch (error) {
+//     res.send({error: error});
+//   }
+// });
+
 app.post("/posts/login", async (req, res) => {
-  try {
-    const users = await db.query(
-      "SELECT * FROM users WHERE email = ? AND password = ?",
-      [req.body.email, req.body.password]
-    );
-    res.status(200).json({
-      status: "Sucessfully Logged in.",
-      data: {
-        users: users,
-      },
+  const {email, password} = req.body;
+
+  let validUser = await db.query("SELECT * FROM users WHERE email = $1", [
+    email,
+  ]);
+  let hasedPassword = validUser.rows[0].password;
+  let auth = bcrypt.compareSync(password, hasedPassword);
+
+  if (auth) return res.send(validUser).json();
+  else {
+    res.status(403).send({
+      message: "passwords dont match",
     });
-  } catch (error) {
-    res.send({error: error});
   }
+
+  // (error, result) => {
+  //   if (error) {
+  //     res.send({error: error});
+  //   }
+
+  //   if (result.length > 0) {
+  //     res.send(result);
+  //   } else {
+  //     res.send({message: "No user found"});
+  //   }
+  // }
 });
 
 app.listen(port, () => {

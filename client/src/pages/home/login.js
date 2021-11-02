@@ -1,20 +1,32 @@
 import React, {useState} from "react";
 import "./login.css";
 import {Link} from "react-router-dom";
-import BlogPostFinder from "../../apis/blogAPI";
+// import BlogPostFinder from "../../apis/blogAPI";
+import axios from "axios";
 
 function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = async (e) => {
-    try {
-      const response = await BlogPostFinder.post("login", {
+  // const handleLogin = async (e) => {
+  //   try {
+  //     const response = await BlogPostFinder.post("login", {
+  //       email: email,
+  //       password: password,
+  //     });
+  //     console.log(response);
+  //   } catch (error) {}
+  // };
+
+  const handleLogin = () => {
+    axios
+      .post("http://localhost:5001/posts/login", {
         email: email,
         password: password,
+      })
+      .then((response) => {
+        console.log(response);
       });
-      console.log(response);
-    } catch (error) {}
   };
 
   return (
