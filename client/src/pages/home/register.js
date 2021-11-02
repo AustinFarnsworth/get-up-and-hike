@@ -1,4 +1,5 @@
 import React, {useContext, useState} from "react";
+import {useHistory} from "react-router-dom";
 import "./register.css";
 import {PostsContext} from "../../context/postContext";
 import BlogPostfinder from "../../apis/blogAPI";
@@ -10,6 +11,7 @@ function RegisterPage() {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  let history = useHistory();
 
   const handleSubmit = async (e) => {
     try {
@@ -21,18 +23,8 @@ function RegisterPage() {
       });
 
       addUsers(response.data.data.users);
+      history.push("/");
     } catch (error) {}
-
-    // axios
-    //   .get("http://localhost:5001/register", {
-    //     first_name: firstName,
-    //     last_name: lastName,
-    //     email: email,
-    //     password: password,
-    //   })
-    //   .then((response) => {
-    //     console.log(response);
-    //   });
   };
 
   return (
@@ -60,7 +52,7 @@ function RegisterPage() {
           onChange={(e) => setPassword(e.target.value)}
         ></input>
         <input type="password" placeholder="Confirm Password"></input>
-        <button type="submit" onClick={handleSubmit}>
+        <button type="submit" onSubmit={handleSubmit}>
           Sign up
         </button>
 

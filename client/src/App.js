@@ -8,10 +8,12 @@ import HomePage from "./pages/home/homePage";
 import {PostsContextProvider} from "./context/postContext";
 import LoginPage from "./pages/home/login";
 import RegisterPage from "./pages/home/register";
+// import {UserProvider} from "./context/userContext";
 
 function App() {
   return (
     // adding the context provider to allow shared data globally with app
+    // <UserProvider>
     <PostsContextProvider>
       <div className="app">
         <Router>
@@ -27,6 +29,7 @@ function App() {
         </Router>
       </div>
     </PostsContextProvider>
+    // </UserProvider>
   );
 }
 

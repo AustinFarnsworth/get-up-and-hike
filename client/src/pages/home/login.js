@@ -1,32 +1,27 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import "./login.css";
 import {Link} from "react-router-dom";
-// import BlogPostFinder from "../../apis/blogAPI";
-import axios from "axios";
+import BlogPostfinder from "../../apis/blogAPI";
+import {useHistory} from "react-router";
+import {PostsContext} from "../../context/postContext";
 
 function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const user = useContext(PostsContext);
+  let history = useHistory();
 
-  // const handleLogin = async (e) => {
-  //   try {
-  //     const response = await BlogPostFinder.post("login", {
-  //       email: email,
-  //       password: password,
-  //     });
-  //     console.log(response);
-  //   } catch (error) {}
-  // };
+  const handleLogin = async (e) => {
+    e.preventDefault();
 
-  const handleLogin = () => {
-    axios
-      .post("http://localhost:5001/posts/login", {
+    try {
+      const response = await BlogPostfinder.post("/login", {
         email: email,
         password: password,
-      })
-      .then((response) => {
-        console.log(response);
       });
+      localStorage.setItem("firstName", response.data.rows[0].first_name);
+      history.push("/");
+    } catch (error) {}
   };
 
   return (

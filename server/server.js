@@ -117,7 +117,7 @@ app.delete("/posts/:id", async (req, res) => {
 
 // ~~~~~~~~~~~~~~~~~ USER ROUTES ~~~~~~~~~~~~~~~~~~~~
 
-// Create User
+// Create User register
 app.post("/posts/register", async (req, res) => {
   try {
     const {first_name, last_name, email, password} = req.body;
@@ -136,20 +136,7 @@ app.post("/posts/register", async (req, res) => {
   }
 });
 
-// app.post("/posts/login", async (req, res) => {
-//   try {
-//     const users = await db.query(
-//       "SELECT * FROM users WHERE email = ? AND password = ?",
-//       [req.body.email, req.body.password]
-//     );
-//     res.status(200).json({
-//       status: "Sucessfully Logged in.",
-//     });
-//   } catch (error) {
-//     res.send({error: error});
-//   }
-// });
-
+// login
 app.post("/posts/login", async (req, res) => {
   const {email, password} = req.body;
 
@@ -162,22 +149,17 @@ app.post("/posts/login", async (req, res) => {
   if (auth) return res.send(validUser).json();
   else {
     res.status(403).send({
-      message: "passwords dont match",
+      message: "Wrong user",
     });
   }
-
-  // (error, result) => {
-  //   if (error) {
-  //     res.send({error: error});
-  //   }
-
-  //   if (result.length > 0) {
-  //     res.send(result);
-  //   } else {
-  //     res.send({message: "No user found"});
-  //   }
-  // }
 });
+
+//  Get user by name
+// app.get("/posts/login, async (req, res) => {
+//   const {name} = req.params;
+//   const {rows} = await db.query("SELECT * FROM users WHERE first_name = $1", [name]);
+//   res.send(rows[0]);
+// });
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
