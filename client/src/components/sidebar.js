@@ -2,6 +2,8 @@ import React from "react";
 import "./sidebar.css";
 
 function SideBar() {
+  const user = localStorage.getItem("user");
+
   return (
     <div className="side-bar">
       <div className="sidebar-items">
@@ -26,6 +28,7 @@ function SideBar() {
             <li className="list-items">Pictures</li>
           </ul> */}
         {/* </div> */}
+        <span>{user ? <h4>Is Logged in</h4> : <h4>Is Logged out</h4>}</span>
       </div>
     </div>
   );

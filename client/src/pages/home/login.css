@@ -27,17 +27,21 @@
   padding: 0 5px;
   width: 40%;
   border-bottom-style: solid;
-  border-bottom-color: grey;
+  border-bottom-color: #95adb6;
 }
 
 .login-button {
-  margin-top: 20px;
-  font-size: 16px;
-  color: #fff;
-  text-transform: uppercase;
-  padding: 0 20px;
-  width: 35%;
-  border: none;
+  background-color: #95adb6;
   border-radius: 25px;
+  border: none;
+  width: 100%;
   cursor: pointer;
+  text-transform: uppercase;
+  color: black;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.button-container {
+  width: 35%;
 }

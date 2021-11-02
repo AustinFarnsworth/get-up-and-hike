@@ -8,9 +8,12 @@ import HomePage from "./pages/home/homePage";
 import {PostsContextProvider} from "./context/postContext";
 import LoginPage from "./pages/home/login";
 import RegisterPage from "./pages/home/register";
+import {useState} from "react";
 // import {UserProvider} from "./context/userContext";
 
 function App() {
+  const user = localStorage.getItem("user");
+
   return (
     // adding the context provider to allow shared data globally with app
     // <UserProvider>
@@ -22,7 +25,9 @@ function App() {
             <Route exact path="/" component={HomePage} />
             <Route exact path="/post/:id" component={SinglePost} />
             <Route exact path="/about" component={AboutPage} />
-            <Route exact path="/create" component={CreatePost} />
+            <Route exact path="/create">
+              {user ? <CreatePost /> : <RegisterPage />}
+            </Route>
             <Route exact path="/login" component={LoginPage} />
             <Route exact path="/register" component={RegisterPage} />
           </Switch>

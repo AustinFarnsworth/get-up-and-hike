@@ -39,6 +39,9 @@ const PostsCard = (props) => {
   return (
     <div className="card">
       {blogPosts.map((el) => {
+        blogPosts.sort(function (a, b) {
+          return b.id - a.id;
+        });
         return (
           <div className="square" key={el.id}>
             <img

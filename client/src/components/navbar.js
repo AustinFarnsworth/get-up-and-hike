@@ -1,13 +1,19 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import "./navbar.css";
 import {Link} from "react-router-dom";
 
 function NavBar() {
+  // const [update, setUpdate] = useState("");
+
+  // useEffect(() => {
+  //   setUpdate(localStorage.getItem("firstName"));
+  // });
+
   return (
     <div className="nav-bar">
       <div className="left">
-        <h4>Hello</h4>
-        <h4>{localStorage.getItem("firstName")}</h4>
+        {/* <h4>Hello</h4>
+        <h4>{localStorage.getItem("firstName")}</h4> */}
       </div>
       <div className="center">
         <Link to="/" className="nav-links">

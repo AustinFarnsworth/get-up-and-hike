@@ -8,7 +8,8 @@ import {PostsContext} from "../../context/postContext";
 function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const user = useContext(PostsContext);
+  const users = useContext(PostsContext);
+  const user = localStorage.getItem("user");
   let history = useHistory();
 
   const handleLogin = async (e) => {
@@ -19,6 +20,9 @@ function LoginPage() {
         email: email,
         password: password,
       });
+
+      console.log(response.data.rows[0]);
+      localStorage.setItem("user", JSON.stringify(response.data.rows[0].id));
       localStorage.setItem("firstName", response.data.rows[0].first_name);
       localStorage.setItem("lastName", response.data.rows[0].last_name);
       history.push("/");
@@ -26,6 +30,7 @@ function LoginPage() {
   };
 
   const handleLogout = () => {
+    localStorage.removeItem("user");
     localStorage.removeItem("firstName");
     localStorage.removeItem("lastName");
     history.push("/");
@@ -47,12 +52,18 @@ function LoginPage() {
           placeholder="Password"
           onChange={(e) => setPassword(e.target.value)}
         ></input>
-        <button className="login-button" onClick={handleLogin}>
-          Login
-        </button>
-        <button className="login-button" onClick={handleLogout}>
-          Log Out
-        </button>
+        <div className="button-container">
+          {user ? (
+            <button className="login-button" onClick={handleLogout}>
+              Log Out
+            </button>
+          ) : (
+            <button className="login-button" onClick={handleLogin}>
+              Login
+            </button>
+          )}
+        </div>
+
         <Link to="/register" className="nav-links">
           Register
         </Link>

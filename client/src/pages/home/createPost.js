@@ -4,11 +4,13 @@ import {useState, useContext} from "react";
 import BlogPostFinder from "../../apis/blogAPI";
 import {PostsContext} from "../../context/postContext";
 import swal from "sweetalert";
+import {useHistory} from "react-router";
 
 function CreatePost() {
   const {addBlogPost} = useContext(PostsContext);
   const [title, setTitle] = useState("");
   const [post, setPost] = useState("");
+  let history = useHistory();
 
   const handleSubmit = async (e) => {
     // prevents you from re rendering the page
@@ -22,11 +24,12 @@ function CreatePost() {
 
       addBlogPost(response.data.data.post);
 
-      swal({
-        title: "Congrats",
-        text: "Post was created",
-        icon: "success",
-      });
+      // swal({
+      //   title: "Congrats",
+      //   text: "Post was created",
+      //   icon: "success",
+      // });
+      history.push("/");
     } catch (err) {}
   };
 
