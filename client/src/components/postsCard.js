@@ -48,12 +48,17 @@ const PostsCard = (props) => {
             />
             <h1 class="card-title">{el.blog_title}</h1>
             <p className="card-info">{el.post_content}</p>
-            <div>
+            <div className="bottom-card-container">
               <a onClick={() => handleReadMore(el.id)} className="card-button">
                 Read More
               </a>
-              <button onClick={() => handleDelete(el.id)}>Delete Post</button>
+              <div className="author">
+                written by: {localStorage.getItem("firstName")}{" "}
+                {localStorage.getItem("lastName")}
+              </div>
             </div>
+
+            {/* <button onClick={() => handleDelete(el.id)}>Delete Post</button> */}
           </div>
         );
       })}

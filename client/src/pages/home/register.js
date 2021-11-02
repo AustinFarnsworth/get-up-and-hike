@@ -23,7 +23,7 @@ function RegisterPage() {
       });
 
       addUsers(response.data.data.users);
-      history.push("/");
+      history.push("/login");
     } catch (error) {}
   };
 
@@ -52,7 +52,7 @@ function RegisterPage() {
           onChange={(e) => setPassword(e.target.value)}
         ></input>
         <input type="password" placeholder="Confirm Password"></input>
-        <button type="submit" onSubmit={handleSubmit}>
+        <button type="submit" onClick={handleSubmit}>
           Sign up
         </button>
 

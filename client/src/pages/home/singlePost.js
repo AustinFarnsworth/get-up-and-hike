@@ -34,6 +34,10 @@ function SinglePost(props) {
           className="card-image"
         />
         <h1 className="post-title">{title}</h1>
+        <h4 className="post-author">
+          written by: {localStorage.getItem("firstName")}{" "}
+          {localStorage.getItem("lastName")}
+        </h4>
         <p className="post-info">{post}</p>
       </div>
       {/* );

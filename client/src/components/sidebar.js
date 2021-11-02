@@ -17,15 +17,15 @@ function SideBar() {
           adventures, things you have learned, or wish you knew before going out
           in the mountains.
         </p>
-        <div className="sidebar-items">
+        {/* <div className="sidebar-items">
           <span className="sidebar-title">CATEGORIES</span>
           <ul className="list">
             <li className="list-items">Trails</li>
             <li className="list-items">Tips and Tricks</li>
             <li className="list-items">Favorites</li>
             <li className="list-items">Pictures</li>
-          </ul>
-        </div>
+          </ul> */}
+        {/* </div> */}
       </div>
     </div>
   );

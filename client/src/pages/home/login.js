@@ -20,8 +20,15 @@ function LoginPage() {
         password: password,
       });
       localStorage.setItem("firstName", response.data.rows[0].first_name);
+      localStorage.setItem("lastName", response.data.rows[0].last_name);
       history.push("/");
     } catch (error) {}
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("firstName");
+    localStorage.removeItem("lastName");
+    history.push("/");
   };
 
   return (
@@ -42,6 +49,9 @@ function LoginPage() {
         ></input>
         <button className="login-button" onClick={handleLogin}>
           Login
+        </button>
+        <button className="login-button" onClick={handleLogout}>
+          Log Out
         </button>
         <Link to="/register" className="nav-links">
           Register
