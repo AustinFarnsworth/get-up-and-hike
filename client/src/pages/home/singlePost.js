@@ -65,13 +65,18 @@ function SinglePost(props) {
         />
         <h1 className="post-title">{title}</h1>
         <h4 className="post-author">Written by: {postAuthor}</h4>
-        <span>
-          {test ? (
-            <button onClick={() => handleDelete(id)}>Delete</button>
-          ) : (
-            <h4></h4>
-          )}
-        </span>
+        <div className="delete-container">
+          <span className="delete">
+            {test ? (
+              <i
+                onClick={() => handleDelete(id)}
+                class="fas fa-trash-alt fa-2x"
+              ></i>
+            ) : (
+              <h4></h4>
+            )}
+          </span>
+        </div>
 
         <p className="post-info">{post}</p>
       </div>

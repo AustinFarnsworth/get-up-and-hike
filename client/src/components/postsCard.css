@@ -10,7 +10,7 @@
 
 .square {
   width: 320px;
-  height: 360px;
+  height: 380px;
   background: white;
   cursor: pointer;
   border-radius: 4px;
@@ -35,10 +35,12 @@
   height: 150px;
   object-fit: cover;
   border-radius: 7px;
+  margin-bottom: 5px;
 }
 
 .card-title {
   margin: auto;
+  margin-bottom: 5px;
   text-align: left;
   padding-top: 3px;
   padding-bottom: 5px;
@@ -59,7 +61,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 5;
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
 }
 
@@ -70,6 +72,7 @@
   padding: 4px 10px;
   margin-right: 225px;
   margin-bottom: 5px;
+
   border-radius: 3px;
   text-decoration: none;
   font-size: 12px;
@@ -81,9 +84,4 @@
   display: flex;
   justify-content: end;
   margin: 10px 5px;
-}
-
-.author {
-  font-family: "Titillium Web", sans-serif;
-  font-size: 13px;
 }

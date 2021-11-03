@@ -58,23 +58,11 @@ const PostsCard = (props) => {
               <a onClick={() => handleReadMore(el.id)} className="card-button">
                 Read More
               </a>
-              <div className="author">
+              {/* <div className="author">
                 written by: {localStorage.getItem("firstName")}{" "}
                 {localStorage.getItem("lastName")}
-              </div>
+              </div> */}
             </div>
-
-            {/* <button onClick={() => handleDelete(el.id)}>Delete Post</button> */}
-            <span>
-              {() => {
-                switch (el.user_id) {
-                  case user:
-                    return <p>{el.blog_title}</p>;
-                  default:
-                    return <p>Hi</p>;
-                }
-              }}
-            </span>
           </div>
         );
       })}
