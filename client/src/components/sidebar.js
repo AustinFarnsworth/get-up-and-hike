@@ -28,7 +28,7 @@ function SideBar() {
             <li className="list-items">Pictures</li>
           </ul> */}
         {/* </div> */}
-        <span>{user ? <h4>Is Logged in</h4> : <h4>Is Logged out</h4>}</span>
+        {/* <span>{user ? <h4>Is Logged in</h4> : <h4>Is Logged out</h4>}</span> */}
       </div>
     </div>
   );

@@ -3,17 +3,20 @@ import "./navbar.css";
 import {Link} from "react-router-dom";
 
 function NavBar() {
-  // const [update, setUpdate] = useState("");
-
-  // useEffect(() => {
-  //   setUpdate(localStorage.getItem("firstName"));
-  // });
+  const user = localStorage.getItem("user");
 
   return (
     <div className="nav-bar">
       <div className="left">
-        {/* <h4>Hello</h4>
-        <h4>{localStorage.getItem("firstName")}</h4> */}
+        {" "}
+        {user ? (
+          <h4>
+            Welcome {localStorage.getItem("firstName")}{" "}
+            {localStorage.getItem("lastName")}
+          </h4>
+        ) : (
+          <h4></h4>
+        )}
       </div>
       <div className="center">
         <Link to="/" className="nav-links">
@@ -30,18 +33,6 @@ function NavBar() {
         <Link to="login" className="nav-links">
           Login
         </Link>
-
-        {/* <Router>
-          <div className="nav-links">
-            <Link to="/">Home</Link>
-          </div>
-          <div className="nav-links">
-            <Link to="/about">About</Link>
-          </div>
-          <div className="nav-links">
-            <Link to="/create">Create Post</Link>
-          </div>
-        </Router> */}
       </div>
       <div className="right">
         {/* <img className="profile-pic" src="" alt=""> */}

@@ -26,6 +26,7 @@ function LoginPage() {
       localStorage.setItem("firstName", response.data.rows[0].first_name);
       localStorage.setItem("lastName", response.data.rows[0].last_name);
       history.push("/");
+      window.location.reload(false);
     } catch (error) {}
   };
 
@@ -34,6 +35,7 @@ function LoginPage() {
     localStorage.removeItem("firstName");
     localStorage.removeItem("lastName");
     history.push("/");
+    window.location.reload(false);
   };
 
   return (

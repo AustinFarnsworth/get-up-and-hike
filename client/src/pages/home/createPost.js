@@ -36,7 +36,7 @@ function CreatePost() {
         text: "Post was created",
         icon: "success",
       });
-      // history.push("/");
+      history.push("/");
     } catch (err) {}
   };
 
