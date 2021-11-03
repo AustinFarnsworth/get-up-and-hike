@@ -10,6 +10,11 @@ function CreatePost() {
   const {addBlogPost} = useContext(PostsContext);
   const [title, setTitle] = useState("");
   const [post, setPost] = useState("");
+  const user = localStorage.getItem("user");
+  const author = localStorage.getItem("firstName");
+  const [userId, setUserId] = useState(user);
+  const [postAuthor, setPostAuthor] = useState(author);
+
   let history = useHistory();
 
   const handleSubmit = async (e) => {
@@ -20,18 +25,22 @@ function CreatePost() {
       const response = await BlogPostFinder.post("/", {
         blog_title: title,
         post_content: post,
+        user_id: userId,
+        post_author: postAuthor,
       });
 
       addBlogPost(response.data.data.post);
 
-      // swal({
-      //   title: "Congrats",
-      //   text: "Post was created",
-      //   icon: "success",
-      // });
+      swal({
+        title: "Congrats",
+        text: "Post was created",
+        icon: "success",
+      });
       history.push("/");
     } catch (err) {}
   };
+
+  console.log(userId);
 
   return (
     <div className="create-post">

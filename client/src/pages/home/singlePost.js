@@ -9,6 +9,10 @@ function SinglePost(props) {
   const {id} = useParams();
   const [title, setTitle] = useState();
   const [post, setPost] = useState();
+  const [userId, setUserId] = useState();
+  const [postAuthor, setPostAuthor] = useState();
+  const user = localStorage.getItem("user");
+  // const firstName = localStorage.getItem("firstName");
 
   // const {posts, setPost} = useContext(PostsContext);
 
@@ -17,11 +21,23 @@ function SinglePost(props) {
       const response = await BlogPostFinder.get(`/${id}`);
       setTitle(response.data.blog_title);
       setPost(response.data.post_content);
-      console.log(response.data);
+      setUserId(response.data.user_id);
+      setPostAuthor(response.data.post_author);
+      // console.log(response.data);
     };
 
     fetchData();
   }, []);
+
+  // const authUser = function checkAuthor() {
+  //   if (user === userid) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // };
+  const test = userId === user;
+  console.log(test);
 
   return (
     <div className="single-post-container">
@@ -34,14 +50,11 @@ function SinglePost(props) {
           className="card-image"
         />
         <h1 className="post-title">{title}</h1>
-        <h4 className="post-author">
-          written by: {localStorage.getItem("firstName")}{" "}
-          {localStorage.getItem("lastName")}
-        </h4>
+        <h4>Written by: {postAuthor}</h4>
+        {/* <span>{test ? <h4>written by: {postAuthor}</h4> : <h4></h4>}</span> */}
+
         <p className="post-info">{post}</p>
       </div>
-      {/* );
-      })} */}
     </div>
   );
 }

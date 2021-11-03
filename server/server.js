@@ -57,12 +57,12 @@ app.post("/posts", async (req, res) => {
 
   try {
     const {rows} = await db.query(
-      "INSERT INTO blog_post (user_id, blog_image, blog_title, date_posted, post_content) VALUES ($1, $2, $3, $4, $5) RETURNING *",
+      "INSERT INTO blog_post (user_id, blog_image, blog_title, post_author, post_content) VALUES ($1, $2, $3, $4, $5) RETURNING *",
       [
         req.body.user_id,
         req.body.blog_image,
         req.body.blog_title,
-        req.body.date_posted,
+        req.body.post_author,
         req.body.post_content,
       ]
     );
@@ -83,12 +83,12 @@ app.post("/posts", async (req, res) => {
 app.put("/posts/:id", async (req, res) => {
   try {
     const {rows} = await db.query(
-      "UPDATE blog_post SET user_id = $1, blog_image = $2, blog_title = $3, date_posted = $4, post_content = $5 WHERE id = $6 RETURNING *",
+      "UPDATE blog_post SET user_id = $1, blog_image = $2, blog_title = $3, post_author = $4, post_content = $5 WHERE id = $6 RETURNING *",
       [
         req.body.user_id,
         req.body.blog_image,
         req.body.blog_title,
-        req.body.date_posted,
+        req.body.post_author,
         req.body.post_content,
         req.params.id,
       ]

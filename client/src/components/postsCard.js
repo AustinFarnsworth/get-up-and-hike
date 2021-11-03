@@ -6,6 +6,8 @@ import {useHistory} from "react-router";
 
 const PostsCard = (props) => {
   const {blogPosts, setBlogPosts} = useContext(PostsContext);
+  const user = localStorage.getItem("user");
+
   // history of the browser
   let history = useHistory();
 
@@ -62,6 +64,16 @@ const PostsCard = (props) => {
             </div>
 
             {/* <button onClick={() => handleDelete(el.id)}>Delete Post</button> */}
+            <span>
+              {() => {
+                switch (el.user_id) {
+                  case user:
+                    return <p>{el.blog_title}</p>;
+                  default:
+                    return <p>Hi</p>;
+                }
+              }}
+            </span>
           </div>
         );
       })}
