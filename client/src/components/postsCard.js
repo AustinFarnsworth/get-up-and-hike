@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import "./postsCard.css";
 import BlogPostFinder from "../apis/blogAPI";
 import {PostsContext} from "../context/postContext";
@@ -7,6 +7,7 @@ import {useHistory} from "react-router";
 const PostsCard = (props) => {
   const {blogPosts, setBlogPosts} = useContext(PostsContext);
   const user = localStorage.getItem("user");
+  const [userId, setUserId] = useState();
 
   // history of the browser
   let history = useHistory();

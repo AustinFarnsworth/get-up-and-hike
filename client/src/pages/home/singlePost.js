@@ -1,20 +1,23 @@
 import React, {useContext, useEffect, useState} from "react";
 import {useParams} from "react-router";
-// import {PostsContext} from "../../context/postContext";
+import {PostsContext} from "../../context/postContext";
 import BlogPostFinder from "../../apis/blogAPI";
+import swal from "sweetalert";
+import {useHistory} from "react-router";
 import "./singlePost.css";
 
 function SinglePost(props) {
   // hook to find the params in a url
   const {id} = useParams();
+  const {blogPosts, setBlogPosts} = useContext(PostsContext);
   const [title, setTitle] = useState();
   const [post, setPost] = useState();
   const [userId, setUserId] = useState();
   const [postAuthor, setPostAuthor] = useState();
-  const user = localStorage.getItem("user");
-  // const firstName = localStorage.getItem("firstName");
 
-  // const {posts, setPost} = useContext(PostsContext);
+  let history = useHistory();
+
+  const user = localStorage.getItem("user");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,15 +32,26 @@ function SinglePost(props) {
     fetchData();
   }, []);
 
-  // const authUser = function checkAuthor() {
-  //   if (user === userid) {
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // };
+  const handleDelete = async (id) => {
+    try {
+      const response = await BlogPostFinder.delete(`/${id}`);
+      setBlogPosts(
+        blogPosts.filter((blogPost) => {
+          return blogPost.id !== id;
+        })
+      );
+      swal({
+        title: "Congrats",
+        text: "Post was deleted",
+        icon: "success",
+      });
+
+      history.push("/");
+    } catch (err) {}
+  };
+
   const test = userId === user;
-  console.log(test);
+  // console.log(test);
 
   return (
     <div className="single-post-container">
@@ -50,8 +64,14 @@ function SinglePost(props) {
           className="card-image"
         />
         <h1 className="post-title">{title}</h1>
-        <h4>Written by: {postAuthor}</h4>
-        {/* <span>{test ? <h4>written by: {postAuthor}</h4> : <h4></h4>}</span> */}
+        <h4 className="post-author">Written by: {postAuthor}</h4>
+        <span>
+          {test ? (
+            <button onClick={() => handleDelete(id)}>Delete</button>
+          ) : (
+            <h4></h4>
+          )}
+        </span>
 
         <p className="post-info">{post}</p>
       </div>

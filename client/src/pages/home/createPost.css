@@ -25,6 +25,9 @@
   margin: 10px 0;
   display: block;
 }
+.create-post textarea {
+  height: 100px;
+}
 
 .blog-button {
   width: 25%;
