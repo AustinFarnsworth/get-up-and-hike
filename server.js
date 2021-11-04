@@ -144,7 +144,7 @@ app.post("/posts/login", async (req, res) => {
 
 // For Deployment
 // To make sure any endpoints that weren't specified in app it will reroute to home
-app.get("/*", function (req, res) {
+app.get("*", function (req, res) {
   res.sendFile(path.join(__dirname, "../client/build", "index.html"));
 });
 
