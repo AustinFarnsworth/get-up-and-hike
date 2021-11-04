@@ -15,7 +15,7 @@ app.use(express.json());
 
 // server static content
 // npm run build
-app.use(express.static(path.resolve(__dirname, "../build")));
+app.use(express.static(__dirname + "/client/build"));
 
 const PORT = process.env.PORT || 5000;
 
