@@ -1,5 +1,5 @@
 const express = require("express");
-const db = require("./db");
+const db = require("./server/db");
 const cors = require("cors");
 const path = require("path");
 const bcrypt = require("bcrypt");
