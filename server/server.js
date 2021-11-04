@@ -1,6 +1,7 @@
 const express = require("express");
 const db = require("./db");
 const cors = require("cors");
+const path = require("path");
 const bcrypt = require("bcrypt");
 
 require("dotenv").config();
@@ -10,26 +11,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const port = process.env.PORT || 5000;
+// For Deployment
+app.use(express.static(path.resolve(__dirname, "../build")));
 
-// dummy data
-// let posts = [
-//   {
-//     id: 1,
-//     author: "John",
-//     postContent: "Hello this is a post",
-//   },
-//   {
-//     id: 2,
-//     author: "Jane",
-//     postContent: "Whats up?",
-//   },
-//   {
-//     id: 3,
-//     author: "Frank",
-//     postContent: "Im hungry",
-//   },
-// ];
+const PORT = process.env.PORT || 5000;
 
 // ~~~~~~~~~~~~~~~~ POST ROUTES ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -154,13 +139,11 @@ app.post("/posts/login", async (req, res) => {
   }
 });
 
-//  Get user by name
-// app.get("/posts/login, async (req, res) => {
-//   const {name} = req.params;
-//   const {rows} = await db.query("SELECT * FROM users WHERE first_name = $1", [name]);
-//   res.send(rows[0]);
-// });
+// For Deployment
+app.get("/*", function (req, res) {
+  res.sendFile(path.join(__dirname, "../build", "index.html"));
+});
 
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
