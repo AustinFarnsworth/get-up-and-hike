@@ -15,7 +15,7 @@ app.use(express.json());
 
 // server static content
 // npm run build
-app.use(express.static(path.resolve(__dirname + "../build")));
+app.use(express.static(path.resolve(__dirname + "../client/build")));
 
 const PORT = process.env.PORT || 5000;
 
@@ -145,7 +145,7 @@ app.post("/posts/login", async (req, res) => {
 // For Deployment
 // To make sure any endpoints that weren't specified in app it will reroute to home
 app.get("/*", function (req, res) {
-  res.sendFile(path.join(__dirname, "../build", "index.html"));
+  res.sendFile(path.join(__dirname, "../client/build", "index.html"));
 });
 
 app.listen(PORT, () => {
