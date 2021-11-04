@@ -5,19 +5,21 @@ const {Pool} = require("pg");
 
 require("dotenv").config();
 
-const USER = process.env.PGUSER;
-const HOST = process.env.PGHOST;
-const DATABASE = process.env.PGDATABASE;
-const PASSWORD = process.env.PGPASSWORD;
-const PORT = process.env.PGPORT;
+const devConvfig = {
+  user: process.env.PGUSER,
+  host: process.env.PGHOST,
+  database: process.env.PGDATABASE,
+  password: process.env.PGPASSWORD,
+  port: process.env.PGPORT,
+};
 
-const pool = new Pool({
-  user: USER,
-  host: HOST,
-  database: DATABASE,
-  password: PASSWORD,
-  port: PORT,
-});
+const productionConfig = {
+  connectionString: process.env.DATABASE_URL,
+};
+
+const pool = new Pool(
+  process.env.NODE_ENV === "production" ? productionConfig : devConvfig
+);
 
 module.exports = {
   query: (text, params) => pool.query(text, params),
