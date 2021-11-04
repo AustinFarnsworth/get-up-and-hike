@@ -12,11 +12,10 @@ app.use(cors());
 app.use(express.json());
 
 // For Deployment
-if (process.eventNames.NODE_ENV === "production") {
-  // server static content
-  // npm run build
-  app.use(express.static(path.join(__dirname, "client/build")));
-}
+
+// server static content
+// npm run build
+app.use(express.static(path.resolve(__dirname, "../build")));
 
 const PORT = process.env.PORT || 5000;
 
