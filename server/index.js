@@ -1,5 +1,32 @@
+// importing the pg libray from node.
+// https://node-postgres.com/
+
+const {Pool} = require("pg");
+
+require("dotenv").config();
+
+const devConvfig = {
+  user: process.env.PGUSER,
+  host: process.env.PGHOST,
+  database: process.env.PGDATABASE,
+  password: process.env.PGPASSWORD,
+  port: process.env.PGPORT,
+};
+
+const productionConfig = {
+  connectionString: process.env.DATABASE_URL,
+};
+
+const pool = new Pool(
+  process.env.NODE_ENV === "production" ? productionConfig : devConvfig
+);
+
+const db = {
+  query: (text, params) => pool.query(text, params),
+};
+
 const express = require("express");
-const db = require("./server/db");
+// const db = require("./server/index.js");
 const cors = require("cors");
 const path = require("path");
 const bcrypt = require("bcrypt");
@@ -16,7 +43,7 @@ app.use(express.json());
 // server static content
 // npm run build
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.resolve(`${__dirname}./client/build`)));
+  app.use(express.static(path.resolve(__dirname, "./client/build")));
 }
 
 const PORT = process.env.PORT || 5000;
