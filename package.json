@@ -1,14 +1,14 @@
 {
-  "name": "server",
+  "name": "get-up-and-hike",
   "version": "1.0.0",
   "description": "",
-  "main": "server/index.js",
+  "main": "./server/index.js",
   "engines": {
     "node": "10.14.2",
     "npm": "6.14.13"
   },
   "scripts": {
-    "start": "node server/index.js",
+    "start": "node ./server/index.js && npm build",
     "dev": "nodemon server/index.js",
     "build": "cd client && npm install && npm run build"
   },
