@@ -2,6 +2,7 @@ const express = require("express");
 const db = require("./database");
 const cors = require("cors");
 const bcrypt = require("bcrypt");
+const path = require("path");
 
 require("dotenv").config();
 
