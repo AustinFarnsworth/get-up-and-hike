@@ -1,3 +1,9 @@
 /* .app {
   background-color: #fcfbf7;
 } */
+
+@media screen and (max-width: 900px) {
+  .app {
+    width: 100%;
+  }
+}

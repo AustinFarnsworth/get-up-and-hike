@@ -51,3 +51,9 @@ h4 {
   font-family: "Titillium Web", sans-serif;
   margin-left: 5px;
 }
+
+@media screen and (max-width: 900px) {
+  .nav-bar {
+    max-width: 80%;
+  }
+}
