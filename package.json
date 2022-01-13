@@ -9,7 +9,6 @@
   },
   "scripts": {
     "start": "node ./server/server.js && npm build",
-    "dev": "nodemon server/server.js",
     "build": "cd client && npm install && npm run build"
   },
   "keywords": [],
