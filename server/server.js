@@ -16,10 +16,10 @@ app.use(express.json());
 // server static content
 // npm run build
 // if (process.env.NODE_ENV === "production") {
-app.use(express.static(path.resolve(__dirname, "../client/build")));
+app.use(express.static(path.resolve(__dirname, "../build")));
 // }
 
-const PORT = process.env.PORT || 5000;
+// const PORT = process.env.PORT || 5000;
 
 // ~~~~~~~~~~~~~~~~ POST ROUTES ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -146,10 +146,13 @@ app.post("/posts/login", async (req, res) => {
 
 // For Deployment
 // To make sure any endpoints that weren't specified in app it will reroute to home
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
+app.get("/*", function (req, res) {
+  res.sendFile(path.join(__dirname, "../build", "index.html"));
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+const {PORT} = process.env;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+// app.listen(PORT, () => {
+//   console.log(`Server running on port ${PORT}`);
+// });
