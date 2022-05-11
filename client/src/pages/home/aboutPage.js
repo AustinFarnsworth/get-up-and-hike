@@ -48,7 +48,7 @@ function AboutPage() {
       </div>
       <div className="about-page-right">
         <img
-          src="/images/colorado-pic.JPG"
+          src="/images/mountain-selfie.jpeg"
           alt="blog creater"
           className="about-pic"
         />
