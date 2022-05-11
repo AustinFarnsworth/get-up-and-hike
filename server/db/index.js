@@ -5,6 +5,9 @@ const {Pool} = require("pg");
 
 require("dotenv").config();
 
+// -- heroku login for database
+// -- heroku pg:psql -a get-up-and-hike
+
 const devConfig = {
   user: process.env.PGUSER,
   host: process.env.PGHOST,
