@@ -11,8 +11,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// For Deployment
-
 // server static content
 // npm run build
 if (process.env.NODE_ENV === "production") {
