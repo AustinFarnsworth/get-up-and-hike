@@ -15,9 +15,9 @@ app.use(express.json());
 
 // server static content
 // npm run build
-// if (process.env.NODE_ENV === "production") {
-app.use(express.static(path.resolve(__dirname, "../client/build")));
-// }
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.resolve(__dirname, "../client/build")));
+}
 
 const PORT = process.env.PORT || 5000;
 
