@@ -15,6 +15,7 @@ app.use(express.json());
 // npm run build
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.resolve(__dirname, "../client/build")));
+  console.log("production mode");
 }
 
 const PORT = process.env.PORT || 5000;
