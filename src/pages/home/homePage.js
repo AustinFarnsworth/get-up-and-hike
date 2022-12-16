@@ -1,6 +1,6 @@
 import React from "react";
 import "./homePage.css";
-import Header from "../..//header/header";
+import Header from "../../header/header";
 import Posts from "../../components/posts";
 import SideBar from "../../components/sidebar";
 
