@@ -39,5 +39,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://verdant-sundae-4511c1.netlify.app/"
+  "proxy": "http://localhost:3001"
 }
