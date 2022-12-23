@@ -12,7 +12,7 @@ This project is a blog website catered towards hikers and lovers of the outdoors
 
 ## Links
 
-Demo of app here - (https://www.youtube.com/watch?v=ypecU6BcvpE&t=1s) Backend repo here - (https://github.com/AustinFarnsworth/get_up_and_hike_api)
+Live site here - (https://verdant-sundae-4511c1.netlify.app/) Demo of app here - (https://www.youtube.com/watch?v=ypecU6BcvpE&t=1s) Backend repo here - (https://github.com/AustinFarnsworth/get_up_and_hike_api)
 
 ## Prerequisites
 
