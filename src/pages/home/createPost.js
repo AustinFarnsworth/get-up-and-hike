@@ -10,7 +10,7 @@ function CreatePost() {
   const {addBlogPost} = useContext(PostsContext);
   const [title, setTitle] = useState("");
   const [post, setPost] = useState("");
-  const user = localStorage.getItem("user");
+  const user = localStorage.getItem("user_id");
   const author = localStorage.getItem("firstName");
   const [userId, setUserId] = useState(user);
   const [postAuthor, setPostAuthor] = useState(author);
@@ -22,7 +22,7 @@ function CreatePost() {
     e.preventDefault();
 
     try {
-      const response = await BlogPostFinder.post("/", {
+      const response = await BlogPostFinder.post("/create", {
         blog_title: title,
         post_content: post,
         user_id: userId,
@@ -38,10 +38,12 @@ function CreatePost() {
       });
       window.location.reload(false);
       history.push("/");
-    } catch (err) {}
-  };
+    } catch (err) {
+      console.log(err);
+    }
 
-  console.log(userId);
+    console.log(userId);
+  };
 
   return (
     <div className="create-post">

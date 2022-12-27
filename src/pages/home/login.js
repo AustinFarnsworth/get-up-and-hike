@@ -22,7 +22,10 @@ function LoginPage() {
       });
 
       console.log(response.data.rows[0]);
-      localStorage.setItem("user", JSON.stringify(response.data.rows[0].id));
+      localStorage.setItem(
+        "user",
+        JSON.stringify(response.data.rows[0].user_id)
+      );
       localStorage.setItem("firstName", response.data.rows[0].first_name);
       localStorage.setItem("lastName", response.data.rows[0].last_name);
       history.push("/");

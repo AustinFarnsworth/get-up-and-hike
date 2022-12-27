@@ -39,5 +39,8 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://getupandhikeapi-production.up.railway.app/"
+  "proxy": "https://getupandhikeapi-production.up.railway.app/posts",
+  "devDependencies": {
+    "react-error-overlay": "^6.0.9"
+  }
 }
