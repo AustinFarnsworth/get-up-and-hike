@@ -10,7 +10,7 @@ function CreatePost() {
   const {addBlogPost} = useContext(PostsContext);
   const [title, setTitle] = useState("");
   const [post, setPost] = useState("");
-  const user = localStorage.getItem("user_id");
+  const user = localStorage.getItem("user");
   const author = localStorage.getItem("firstName");
   const [userId, setUserId] = useState(user);
   const [postAuthor, setPostAuthor] = useState(author);
@@ -22,7 +22,7 @@ function CreatePost() {
     e.preventDefault();
 
     try {
-      const response = await BlogPostFinder.post("/create", {
+      const response = await BlogPostFinder.post("/", {
         blog_title: title,
         post_content: post,
         user_id: userId,
@@ -37,11 +37,10 @@ function CreatePost() {
         icon: "success",
       });
       window.location.reload(false);
+      history.push("/");
     } catch (err) {
       console.log(err);
     }
-
-    console.log(userId);
   };
 
   return (
