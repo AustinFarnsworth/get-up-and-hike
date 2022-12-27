@@ -37,7 +37,6 @@ function CreatePost() {
         icon: "success",
       });
       window.location.reload(false);
-      history.push("https://verdant-sundae-4511c1.netlify.app/");
     } catch (err) {
       console.log(err);
     }
