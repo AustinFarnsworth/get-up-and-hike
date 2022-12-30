@@ -38,7 +38,7 @@ function CreatePost() {
       });
 
       history.push("/");
-      window.location.reload(false);
+      window.location.reload(true);
     } catch (err) {
       console.log(err);
     }
