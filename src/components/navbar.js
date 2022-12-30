@@ -30,9 +30,16 @@ function NavBar() {
         <Link to="create" className="nav-links">
           Create Post
         </Link>
-        <Link to="login" className="nav-links">
-          Login
-        </Link>
+
+        {user ? (
+          <Link to="login" className="nav-links">
+            Logout
+          </Link>
+        ) : (
+          <Link to="login" className="nav-links">
+            Login
+          </Link>
+        )}
       </div>
       <div className="right">
         {/* <img className="profile-pic" src="" alt=""> */}

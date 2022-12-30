@@ -37,8 +37,8 @@ function CreatePost() {
         icon: "success",
       });
 
-      window.location.reload(false);
       history.push("/");
+      window.location.reload(false);
     } catch (err) {
       console.log(err);
     }
