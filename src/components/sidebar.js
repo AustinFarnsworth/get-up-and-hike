@@ -10,7 +10,7 @@ function SideBar() {
         <span className="sidebar-title">ABOUT GET UP AND HIKE</span>
         <img
           className="sidebar-image"
-          src="/images/free-hiking-trails-in-Joburg.jpeg"
+          src="get-up-and-hike/images/free-hiking-trails-in-Joburg.jpeg"
           alt="profile-pic"
         />
         <p className="sidebar-info">
