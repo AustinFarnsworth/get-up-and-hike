@@ -1,6 +1,6 @@
 {
   "name": "client",
-  "homepage": "https://AustinFarnsworth.github.io/get-up-and-hike",
+  "homepage": "./",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
