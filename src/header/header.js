@@ -19,7 +19,7 @@ function Header() {
         <span className="title">Get Up and Hike</span>
       </div>
       <img
-        src="get-up-and-hike/images/hiking-header.jpeg"
+        src="../../public/images/hiking-header.jpeg"
         className="header-image"
         alt="hikers"
       />
