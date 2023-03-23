@@ -59,7 +59,7 @@ function SinglePost(props) {
         return ( */}
       <div className="single-post">
         <img
-          src="/images/snowy-mountains.jpg"
+          src="./get-up-and-hike/images/snowy-mountains.jpg"
           alt="mountians"
           className="card-image"
         />
